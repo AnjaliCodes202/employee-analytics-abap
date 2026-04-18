@@ -1,0 +1,25 @@
+@EndUserText.label: 'Employee Data'
+define view entity ZEMPLOYEE_CDS
+as select from I_Currency
+{
+    key Currency        as emp_id,
+        CurrencyISOCode as name,
+
+        case Currency
+            when 'USD' then 'IT'
+            when 'INR' then 'HR'
+            else 'Finance'
+        end as department,
+
+        case Currency
+            when 'USD' then 80000
+            when 'INR' then 40000
+            else 60000
+        end as salary,
+
+        case Currency
+            when 'USD' then 6
+            when 'INR' then 1
+            else 3
+        end as experience
+}
